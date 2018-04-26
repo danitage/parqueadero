@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block section %}
+    <h2>
+        {{ object.title }}
+    
+        {% if object.propietario_id %}
+            ( <a href="{% url "propietario-detail" object.propietario_id %}">{{ object.propietario }}</a> )
+        {% endif %}
+    </h2>
+    <a href="{% url "propietario-update" object.id %}">edit</a>
+    <a href="{% url "propietario-delete" object.id %}">delete</a>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+<div>
+   
+</div>
+{% endblock maincontent %}

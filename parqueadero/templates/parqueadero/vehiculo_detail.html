@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block section %}
+    <h2>
+        {{ object.placa }}
+        {% if object.favorite %}
+            &#9733;
+        {% else %}
+            &#9734;
+        {% endif %}
+        {% if object.propietario_id %}
+            ( <a href="{% url "propietario-detail" object.propietario_id %}">{{ object.propietario }}</a> )
+            
+        {% endif %}
+    </h2>
+    <p><strong>comments: </strong>{{ object.comment|default:"no comments" }}</p>
+    <a href="{% url "vehiculo-update" object.id %}">edit</a>
+    <a href="{% url "vehiculo-delete" object.id %}">delete</a>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+<div>
+    <div>
+        
+
+
+    </div>
+</div>
+{% endblock maincontent %}
